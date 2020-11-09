@@ -12,14 +12,15 @@
 body {
 	
 
+
 }
 .left_bar {
 
-	width: 200px;
-	height: 100%;
-	border-right: 2px solid;
-	min-height: 950px;
-	margin: 0 20px 0 0;
+	width: 100%;
+	min-width:1050px;
+	height: 40px;
+	border-bottom: 1px solid;
+	margin: 0 0 10px 0;
 	display:inline-flex;
 	z-index: 10;
 
@@ -31,8 +32,8 @@ body {
 	margin-left: 10px;
 	font-size: 30;
 	position: relative;
-	top: 9px;
-	float: left;
+	
+	
 
 }
 
@@ -63,10 +64,14 @@ nav a:hover {
 }
 
 .wrapper {
+	
 	margin: 0 auto;
-	top: 50px;
+	top: 20px;
 	position: relative;
-	padding: 0 10px;	
+	padding: 0 10px;
+	width: 90%;	
+	background-image: url("../images/backgrounds/desktop.jpg");
+
 	
 	
 }
@@ -80,7 +85,7 @@ nav a:hover {
 }
 
 .user_details {
-	width: 250px;
+	width: 300px;
 	float: left;
 	margin-bottom: 20px;
 }
@@ -94,12 +99,15 @@ nav a:hover {
 
 .user_details img {
 	height: 125px;
+	width: 125px;
 	border-radius: 5px;
 	margin-right: 5px;
 }
 
 .main_column {
-
+	float:right;
+	width: 70%;
+	z-index: -1;
 }
 
 .post_form {
@@ -135,3 +143,36 @@ textarea:focus {
 .post_form input[type="submit"]:active {
 	padding: 5px 4px 4px 5px ;
 	}
+
+.status_post {
+
+	width:96%;
+	font-size:15px;
+	padding: 0px 5px;
+	min-height: 75px;
+}
+
+.post_profile_pic {
+	float: left;
+	margin-right: 7px;
+}
+
+.post_profile_pic img {
+	border-radius: 5px;
+}
+
+.profile_left {
+	top: -10px;
+	width: 17%;
+	max-width: 240px;
+	min-width: 130px;
+	height: 100%;
+	float: left;
+	position: relative;
+	
+	border-right: 1px solid;
+	margin-right: 20px;
+
+
+
+}

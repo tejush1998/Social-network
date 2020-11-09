@@ -2,7 +2,7 @@
 <?php
 require 'config/config.php';
 require 'includes/form_handlers/register_handler.php';
-require 'includes/form_handlers/login_handler.php';
+require 'includes/form_handlers/login_handler.php'; //this will check if login button is pressed, if yes it will send to index page
 ?>
 
 <html>
@@ -17,13 +17,13 @@ require 'includes/form_handlers/login_handler.php';
 <body>
 
 <?php
-if(isset($_POST['register_button'])) {
+if(isset($_POST['register_button'])) { //post from post form
 
 	echo '
 	<script>
 	$(document).ready(function() {
-			$("#first").hide();
-			$("#second").show();
+			$("#second").hide();
+			$("#first").show();
 		});
 	</script>
 	';
