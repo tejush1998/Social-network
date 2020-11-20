@@ -78,7 +78,7 @@ class Post {
 				$user_to="";
 			}
 			else {
-				$user_to_obj = new User($con, $row['user_to']);
+				$user_to_obj = new User($this->con, $row['user_to']);
 				$user_to_name = $user_to_obj->getFirstAndLastName();
 				$user_to = "to <a href='" . $row['user_to'] . "'>" . $user_to_name . "</a>";
 			}
@@ -90,6 +90,9 @@ class Post {
 				continue;
 			}
 
+			$user_logged_obj = new User($this->con, $userLoggedIn);
+			if($user_logged_obj->isFriend($added_by)){
+
 			if($num_iterations++ < $start)
 				continue; //send to top again
 
@@ -100,6 +103,11 @@ class Post {
 			else {
 				$count++;
 			}
+
+			if($userLoggedIn == $added_by) 
+				$delete_button = "<button class='delete_button btn-danger' id='post$id'>X</button>";
+			else 
+				$delete_button = "";
 
 			$user_details_query = mysqli_query($this->con, "select first_name, last_name, profile_pic from users where username='$added_by'");
 			$user_row = mysqli_fetch_array($user_details_query);
@@ -187,14 +195,37 @@ class Post {
 
 					<div class='posted_by' style='color:#ACACAC;'>
 					<a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
+					$delete_button
 					</div>
 					<div id='post_body'>$body<br></div>
 
 
 					</div>
 					<hr>";
+				}
 
-		}
+				?>
+				<script>
+					$(document).ready(function() {
+
+						$('#post<?php echo $id; ?>').on('click', function() {
+							bootbox.confirm("Confirm", function(result) {
+
+								$.post("includes/form_handlers/delete_post.php?post_id=<?php echo $id; ?>", {result:result});
+
+								if(result)
+									location.reload();
+
+							});
+							
+
+						});
+					});
+
+				</script>
+				<?php
+
+		} //end while
 
 		if($count > $limit)
 			$str .= "<input type='hidden' class='nextPage' value='" . ($page + 1) . "'><input type = 'hidden' class='noMorePosts' value='false'>";
@@ -243,6 +274,11 @@ class Post {
 			else {
 				$count++;
 			}
+
+			if($userLoggedIn == $added_by) 
+				$delete_button = "<button class='delete_button btn-danger' id='post$id'>X</button>";
+			else 
+				$delete_button = "";
 
 			$user_details_query = mysqli_query($this->con, "select first_name, last_name, profile_pic from users where username='$added_by'");
 			$user_row = mysqli_fetch_array($user_details_query);
@@ -330,6 +366,7 @@ class Post {
 
 					<div class='posted_by' style='color:#ACACAC;'>
 					<a href='$added_by'> $first_name $last_name </a> &nbsp;&nbsp;&nbsp;&nbsp;$time_message
+					$delete_button
 					</div>
 					<div id='post_body'>$body<br></div>
 
@@ -337,7 +374,27 @@ class Post {
 					</div>
 					<hr>";
 
-		}
+		?>
+				<script>
+					$(document).ready(function() {
+
+						$('#post<?php echo $id; ?>').on('click', function() {
+							bootbox.confirm("Confirm", function(result) {
+
+								$.post("includes/form_handlers/delete_post.php?post_id=<?php echo $id; ?>", {result:result});
+
+								if(result)
+									location.reload();
+
+							});
+							
+
+						});
+					});
+
+				</script>
+				<?php
+			}
 
 		if($count > $limit)
 			$str .= "<input type='hidden' class='nextPage' value='" . ($page + 1) . "'><input type = 'hidden' class='noMorePosts' value='false'>";
@@ -348,7 +405,6 @@ class Post {
 
 		echo $str; //final output
 	}
-
 
 }
 

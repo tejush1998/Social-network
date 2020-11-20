@@ -1,7 +1,6 @@
 <?php
-include("includes/header.php");
-include("includes/classes/User.php");
-include("includes/classes/Post.php");
+include("includes/header.php"); 
+$num_friends = (substr_count($user['friend_array'], ",")) - 1;
 
 //userloggedin is userid, user is full details about user, both these come from header file
 
@@ -21,8 +20,9 @@ if(isset($_POST['post'])) {
 		</a>
 		<br>
 		<?php echo "Posts: " . $user['num_posts']. "<br>" ; 
-		echo "Likes: " . $user['num_likes'];
+		
 		?>
+
 
 		</div>
 </div>
@@ -42,6 +42,8 @@ if(isset($_POST['post'])) {
 </div>
 
 <script> //basically ajax is sending to post and post is sending back if available more, then ajax scrolls then post again till posts sends no more available
+
+//AJAX Works through Javascript
 	
 	var userLoggedIn = '<?php echo $userLoggedIn; ?>';
 

@@ -11,6 +11,7 @@
 
 body {
 	
+	background-color: #F0F2F5;
 
 
 }
@@ -23,6 +24,7 @@ body {
 	margin: 0 0 10px 0;
 	display:inline-flex;
 	z-index: 10;
+	background-color: #fff;
 
 
 }
@@ -88,6 +90,7 @@ nav a:hover {
 	width: 300px;
 	float: left;
 	margin-bottom: 20px;
+	background-color: #fff;
 }
 
 .user_details_left_right {
@@ -102,12 +105,14 @@ nav a:hover {
 	width: 125px;
 	border-radius: 5px;
 	margin-right: 5px;
+	
 }
 
 .main_column {
 	float:right;
 	width: 70%;
 	z-index: -1;
+	background-color: #fff;
 }
 
 .post_form {
@@ -123,6 +128,7 @@ nav a:hover {
 	border: 1px solid;
 	font-size: 12px;
 	padding: 5px;
+	z-index: -1;
 }
 
 textarea:focus {
@@ -150,6 +156,7 @@ textarea:focus {
 	font-size:15px;
 	padding: 0px 5px;
 	min-height: 75px;
+	z-index: -1;
 }
 
 .post_profile_pic {
@@ -169,10 +176,189 @@ textarea:focus {
 	height: 100%;
 	float: left;
 	position: relative;
-	
 	border-right: 1px solid;
 	margin-right: 20px;
+	padding-left: 10px;
+	background-color: #fff;
+}
+
+.profile_left img {
+
+	min-width: 80px;
+	width: 55%;
+	height: 15%;
+	margin: 20px;
+	border-radius:  100px;
+	border: 1px solid;
+}
+
+.profile_info {
+
+	
+	width:100%;
+	padding: 5px 5px 10px 0;
+	margin-left: 10px;
+
+}
 
 
 
+.profile_info p {
+
+	margin: 0 0 0 20px;
+	word-wrap: break-word;
+}
+
+.profile_left input[type="submit"] {
+
+	width: 90%;
+	height: 30px;
+	border-radius: 5px;
+	margin: 7px 0 0 7px;
+	border: none;
+}
+
+#accept_button {
+	width: 20%;
+	height: 28px;
+	border-radius: 5px;
+	margin: 5px;
+	border:none;
+}
+#ignore_button {
+	width: 20%;
+	height: 28px;
+	border-radius: 5px;
+	margin: 5px;
+	border:none;
+}
+
+.delete_button {
+	height: 22px;
+	width: 22px;
+	padding: 0;
+	float:right;
+	border-radius: 4px;
+	right: -15px;
+	position:relative;
+}
+
+
+.profile_main_column {
+	min-width: 675px;
+	float: left;
+	width: 70%;
+	z-index: -1;
+	background-color: #fff;
+
+}
+
+.profile_info_bottom {
+	margin: 10 0 0 7px;
+
+}
+
+#message_textarea {
+	width: 80%;
+	margin-right: 8px;
+	border-radius: 5px;
+	border: 1px solid;
+	font-size: 12px;
+}
+
+#message_submit {
+	height: 41px;
+	width: 120px;
+	margin: 0;
+	position: absolute;
+	border:none;
+	border-radius: 10px;
+	font-family: 'Oswald-BoldItalic', sans-serif;
+
+}
+
+.message {
+
+	border: 1px solid;
+	border-radius: 5px;
+	padding: 5px 10px;
+	display: inline-block;
+}
+
+.message#blue {
+	float: right;
+	margin-bottom:5px;
+}
+
+.message#green {
+
+	float: right;
+	margin-bottom:5px;
+}
+
+.loaded_messages {
+
+	height: 65%;
+	min-height: 300px;
+	max-height: 400px;
+	overflow: scroll;
+	margin-bottom: 10px;
+}
+
+.loaded_conversations {
+
+	max-height: 216px;
+	overflow:scroll;
+}
+
+.user_found_messages {
+	border-bottom: 1px solid;
+	padding: 8px 8px 10px 8px;
+}
+
+.user_found_messages img {
+	height: 35px;
+	float:left;
+}
+
+#grey {
+	color: black;
+}
+
+.resultDisplay a {
+	float: none;
+}
+
+.resultDisplay:hover {
+	text-decoration: none;
+}
+
+.liveSearchProfilePic img {
+	height: 50px;
+	border-radius: 25px;
+	margin: 1px 12px 0 2px;
+	float: left;
+}
+
+.liveSearchText {
+
+}
+
+.liveSearchText p {
+	margin-left: 10px;
+	font-size: 12px;
+}
+
+.dropdown_data_window {
+
+	background-color: #fff;
+	border: 1px solid ;
+	border-radius: 0 0 8px 8px;
+	border-top: none;
+	width: 300px;
+	position: absolute; /* relative to the object right net to it */
+	right: 10px;
+	top: 40px;
+	overflow:scroll;
+	z-index: 1;
 }
